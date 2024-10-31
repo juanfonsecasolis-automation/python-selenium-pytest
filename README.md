@@ -17,6 +17,13 @@ pytest -m <testSuite> --browser='Chrome'
 deactive
 ```
 
+# Theory
+* PyTest is a syntax framework that can be integrated to Selenium WebDriver [2, 3, 5].
+* The set-up and tear-down code is stored in the same function and separated by the "yield" keyword [6].
+* Test suites are specified putting the "pytest.mark.nameOfSuite" annotation above test methods and registering them in the pytest.ini file.
+* PyTest finds test methods that starts with prefix "_prefix" on clases that finishes with "Test" suffix [4].
+* User can add extra options to the pytest command in a conftest.py file.
+
 # References
 1. Python Software Foundation. venv — Creation of virtual environments. URL: https://docs.python.org/3/library/venv.html#how-venvs-work
 2. PyTest Dev Team. Get Started. URL: https://docs.pytest.org/en/stable/getting-started.html#get-started

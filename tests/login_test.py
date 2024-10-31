@@ -5,8 +5,8 @@ from helpers.driver_manager import get_driver
 class TestLogin:
 
     @pytest.fixture()
-    def driver(self):
-        self.driver = get_driver()
+    def driver(self, params):
+        self.driver = get_driver(params['browser'])
         self.driver.get("https://www.saucedemo.com/")
         yield
         self.driver.close()

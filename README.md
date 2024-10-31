@@ -13,7 +13,7 @@ pip install -r requirements.txt
 # Run [1]
 ```
 source .venv/bin/activate 
-pytest -m <testSuite>
+pytest -m <testSuite> --browser='Chrome'
 deactive
 ```
 
@@ -23,3 +23,4 @@ deactive
 3. Sergey Pirogov. webdriver-manager 4.0.2. URL: https://pypi.org/project/webdriver-manager/
 4. PyTest Dev Team. Changing standard (Python) test discovery. URL: https://docs.pytest.org/en/7.1.x/example/pythoncollection.html
 5. Baiju Muthukadan. 2. Getting Started. URL: https://selenium-python.readthedocs.io/getting-started.html#simple-usage
+6. Jen Chen. pytest - fixture; Setup and Teardown. URL: https://hackmd.io/@jenc/SJYmGcKsK

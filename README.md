@@ -22,7 +22,7 @@ deactive
 * The set-up and tear-down code is stored in the same function and separated by the "yield" keyword [6].
 * Test suites are specified putting the "pytest.mark.nameOfSuite" annotation above test methods and registering them in the pytest.ini file.
 * PyTest finds test methods that starts with prefix "_prefix" on clases that finishes with "Test" suffix [4].
-* User can add extra options to the pytest command in a conftest.py file.
+* User can add extra options to the pytest command in a conftest.py file [6].
 
 # References
 1. Python Software Foundation. venv — Creation of virtual environments. URL: https://docs.python.org/3/library/venv.html#how-venvs-work

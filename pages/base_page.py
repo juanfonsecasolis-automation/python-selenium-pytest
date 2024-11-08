@@ -5,5 +5,5 @@ class BasePage(object):
     def __init__(self, driver):
         self.driver = driver
 
-    def verify_page_loaded_correctly(self):
+    def _verify_page_loaded_correctly(self):
         raise NotImplementedError()

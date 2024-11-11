@@ -12,5 +12,5 @@ class InventoryPage(BasePage):
 
     def _verify_page_loaded_correctly(self):
         assert "Swag Labs" in self.driver.title
-        WebDriverWait(self.driver, self.explicitWaitTimeoutSeconds).until(EC.presence_of_element_located(*self.__inventoryItemNameLocator))
+        WebDriverWait(self.driver, self._explicit_wait_timeout_seconds).until(EC.presence_of_element_located(*self.__inventoryItemNameLocator))
     

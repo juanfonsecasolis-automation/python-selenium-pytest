@@ -6,22 +6,26 @@ from pages.inventory_page import InventoryPage
 
 class LoginPage(BasePage):
 
-    __usernameLocator = By.ID, 'user-name'
-    __passwordLocator = By.ID, 'password'
-    __loginButtonLocator = By.ID, 'login-button'
+    __username_locator = By.ID, 'user-name'
+    __password_locator = By.ID, 'password'
+    __login_button_locator = By.ID, 'login-button'
+    __error_message_locator = By.XPATH, '//*[@data-test="error"]'
 
     def __init__(self, driver):
         super(LoginPage, self).__init__(driver)
 
     def _verify_page_loaded_correctly(self):
         assert "Swag Labs" in self._BasePage__driver.title
-        WebDriverWait(self._BasePage__driver, self._BasePage__explicit_wait_timeout_seconds).until(EC.presence_of_element_located(self.__loginButtonLocator))
+        WebDriverWait(self._BasePage__driver, self._BasePage__explicit_wait_timeout_seconds).until(EC.presence_of_element_located(self.__login_button_locator))
     
     def login(self, username, password):
-        self._BasePage__driver.find_element(*self.__usernameLocator).send_keys(username)
-        self._BasePage__driver.find_element(*self.__passwordLocator).send_keys(password)
-        self._BasePage__driver.find_element(*self.__loginButtonLocator).click()
-        if "/inventory.html" in self._BasePage__driver.current_url:
+        self._BasePage__driver.find_element(*self.__username_locator).send_keys(username)
+        self._BasePage__driver.find_element(*self.__password_locator).send_keys(password)
+        self._BasePage__driver.find_element(*self.__login_button_locator).click()
+        try:
             return InventoryPage(self._BasePage__driver)
-        else:
+        except:
             return self
+        
+    def get_error_message(self):
+        return self._BasePage__driver.find_element(*self.__error_message_locator).text

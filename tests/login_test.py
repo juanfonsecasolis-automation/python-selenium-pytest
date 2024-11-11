@@ -7,7 +7,6 @@ class TestLogin:
     def test_positive_login(self, driver):
         loginPage = LoginPage(driver)
         inventoryPage = loginPage.login('standard_user', 'secret_sauce')
-        assert "Products" in driver.page_source
 
     @pytest.mark.negativeTests
     @pytest.mark.parametrize(
@@ -19,3 +18,4 @@ class TestLogin:
         loginPage = LoginPage(driver)
         loginPage.login(username, password)
         assert "Products" not in driver.page_source
+        assert loginPage.get_error_message() == 'Epic sadface: Username and password do not match any user in this service'

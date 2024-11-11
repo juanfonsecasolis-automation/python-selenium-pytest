@@ -10,7 +10,7 @@ class InventoryPage(BasePage):
     def __init__(self, driver):
         super(InventoryPage, self).__init__(driver)
 
-    def _verify_page_loaded_correctly(self):
-        assert "Swag Labs" in self.driver.title
-        WebDriverWait(self.driver, self._explicit_wait_timeout_seconds).until(EC.presence_of_element_located(*self.__inventoryItemNameLocator))
+    def __verify_page_loaded_correctly(self):
+        assert "Swag Labs" in self._BasePage__driver.title
+        WebDriverWait(self._BasePage__driver, self._explicit_wait_timeout_seconds).until(EC.presence_of_element_located(*self.__inventoryItemNameLocator))
     

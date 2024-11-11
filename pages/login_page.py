@@ -12,11 +12,11 @@ class LoginPage(BasePage):
     def __init__(self, driver):
         super(LoginPage, self).__init__(driver)
 
-    def _verify_page_loaded_correctly(self):
-        assert "Swag Labs" in self.driver.title
-        WebDriverWait(self.driver, self._explicit_wait_timeout_seconds).until(EC.presence_of_element_located(*self.__loginButtonLocator))
+    def __verify_page_loaded_correctly(self):
+        assert "Swag Labs" in self.__driver.title
+        WebDriverWait(self.__driver, self._explicit_wait_timeout_seconds).until(EC.presence_of_element_located(*self.__loginButtonLocator))
     
     def login(self, username, password):
-        self.driver.find_element(*self.__usernameLocator).send_keys(username)
-        self.driver.find_element(*self.__passwordLocator).send_keys(password)
-        self.driver.find_element(*self.__loginButtonLocator).click()
+        self._BasePage__driver.find_element(*self.__usernameLocator).send_keys(username)
+        self._BasePage__driver.find_element(*self.__passwordLocator).send_keys(password)
+        self._BasePage__driver.find_element(*self.__loginButtonLocator).click()

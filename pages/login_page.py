@@ -2,6 +2,7 @@ from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from pages.inventory_page import InventoryPage
 
 class LoginPage(BasePage):
 
@@ -20,3 +21,4 @@ class LoginPage(BasePage):
         self._BasePage__driver.find_element(*self.__usernameLocator).send_keys(username)
         self._BasePage__driver.find_element(*self.__passwordLocator).send_keys(password)
         self._BasePage__driver.find_element(*self.__loginButtonLocator).click()
+        return InventoryPage(self._BasePage__driver)

@@ -6,7 +6,7 @@ class TestLogin:
     @pytest.mark.positiveTests
     def test_positive_login(self, driver):
         loginPage = LoginPage(driver)
-        loginPage.login('standard_user', 'secret_sauce')
+        inventoryPage = loginPage.login('standard_user', 'secret_sauce')
         assert "Products" in driver.page_source
 
     @pytest.mark.negativeTests

@@ -24,6 +24,7 @@ deactive
 * PyTest finds test methods that starts with prefix "_prefix" on clases that finishes with "Test" suffix [4].
 * User can add extra options to the pytest command in a conftest.py file [6].
 * The function for providing webdriver as fixture goes in the conftest.py [7].
+* Single leading underscore (like in _variable) indicates that the member (variable or method) is for internal use (private or protected?) and _should_ not be invoked outside the class. Double leading underscore (like in __variable) triggers Python's name mangling, which means that the member can be access only by appending the class name (for example, _MyClass__variable) and prevents child classes from overriding it [8].
 
 # References
 1. Python Software Foundation. venv — Creation of virtual environments. URL: https://docs.python.org/3/library/venv.html#how-venvs-work
@@ -32,4 +33,5 @@ deactive
 4. PyTest Dev Team. Changing standard (Python) test discovery. URL: https://docs.pytest.org/en/7.1.x/example/pythoncollection.html
 5. Baiju Muthukadan. 2. Getting Started. URL: https://selenium-python.readthedocs.io/getting-started.html#simple-usage
 6. Jen Chen. pytest - fixture; Setup and Teardown. URL: https://hackmd.io/@jenc/SJYmGcKsK
-7. QA Automation Expert. Page Object Model Implementation of Python with Selenium – PyTest. April 2, 2024. URL: https://qaautomation.expert/2024/04/02/page-object-model-implementation-of-python-with-selenium-pytest/ (last consulted on 11/04/24)
+7. QA Automation Expert. Page Object Model Implementation of Python with Selenium – PyTest. April 2, 2024. URL: https://qaautomation.expert/2024/04/02/page-object-model-implementation-of-python-with-selenium-pytest/ (last consulted on 11/04/24).
+8. Leodanis Pozo Ramos. Single and Double Underscores in Python Names. Real Python. Nov 29, 2023. URL: https://realpython.com/python-double-underscore (last consulted on 11/11/24).

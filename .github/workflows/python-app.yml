@@ -33,3 +33,11 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --browser='Chrome' --html=reports/report.html
+
+                - name: Upload a Build Artifact
+    - uses: actions/upload-artifact@v4.4.3
+      with:
+        name: testReport
+        path: reports/
+              
+    

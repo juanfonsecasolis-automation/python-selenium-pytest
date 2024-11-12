@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 seconds_implicit_wait = None
@@ -8,7 +9,11 @@ def get_driver(browserType):
 
     driver = None
     if browserType=='Chrome':
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+        driverOptions = Options()
+        driverOptions.add_argument('--headless')
+        driver = webdriver.Chrome(
+            options=driverOptions, 
+            service=ChromeService(ChromeDriverManager().install()))
     else:
         raise NotImplementedError('Unknown webdriver.')
     

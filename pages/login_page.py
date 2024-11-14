@@ -22,8 +22,8 @@ class LoginPage(BasePage):
         self._driver.find_element(*self.__password_locator).send_keys(password)
         self._driver.find_element(*self.__login_button_locator).click()
         try:
-            return InventoryPage(self._driver)
-        except:
+            return InventoryPage(self._driver)            
+        except AssertionError:
             return self
         
     @property

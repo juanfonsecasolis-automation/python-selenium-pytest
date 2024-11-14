@@ -1,4 +1,5 @@
-from selenium.webdriver.support.wait import WebDriver
+from selenium.webdriver.support.wait import WebDriver, WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class BasePage(object):
 
@@ -11,3 +12,11 @@ class BasePage(object):
 
     def _verify_page_loaded_correctly(self):
         raise NotImplementedError()
+    
+    def _wait_until_element_is_visible(self, locator: tuple):
+        WebDriverWait(
+            self._driver, 
+            self._explicit_wait_timeout_seconds
+        ).until(
+            EC.presence_of_element_located(locator)
+        )

@@ -16,12 +16,7 @@ class LoginPage(BasePage):
 
     def _verify_page_loaded_correctly(self):
         assert "Swag Labs" in self._driver.title
-        WebDriverWait(
-            self._driver, 
-            self._explicit_wait_timeout_seconds
-        ).until(
-            EC.presence_of_element_located(self.__login_button_locator)
-        )
+        self._wait_until_element_is_visible(self.__login_button_locator)
     
     def login(self, username: str, password: str):
         self._driver.find_element(*self.__username_locator).send_keys(username)
@@ -34,4 +29,5 @@ class LoginPage(BasePage):
         
     @property
     def error_message(self) -> WebElement: 
+        # return value is 'WebElement'
         return self._driver.find_element(*self.__error_message_locator).text

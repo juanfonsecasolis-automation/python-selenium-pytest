@@ -1,5 +1,7 @@
 # python-selenium-pytest
 
+[![Python application](https://github.com/juanfonsecasolis-automation/python-selenium-pytest/actions/workflows/python-app.yml/badge.svg)](https://github.com/juanfonsecasolis-automation/python-selenium-pytest/actions/workflows/python-app.yml)
+
 2024 Juan M. Fonseca-Solís
 
 # Set up [1]

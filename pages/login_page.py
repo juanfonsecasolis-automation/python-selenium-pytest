@@ -1,15 +1,14 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait, WebDriver, WebElement
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriver, WebElement
 from pages.inventory_page import InventoryPage
 
 class LoginPage(BasePage):
 
-    __username_locator = (By.ID, 'user-name') # private attribute
-    __password_locator = (By.ID, 'password') # private attribute
-    __login_button_locator = (By.ID, 'login-button') # private attribute
-    __error_message_locator = (By.XPATH, '//*[@data-test="error"]') # private attribute
+    __username_locator = (By.ID, 'user-name') # private member
+    __password_locator = (By.ID, 'password') # private member
+    __login_button_locator = (By.ID, 'login-button') # private member
+    __error_message_locator = (By.XPATH, '//*[@data-test="error"]') # private member
 
     def __init__(self, driver: WebDriver):
         super(LoginPage, self).__init__(driver)
@@ -28,6 +27,5 @@ class LoginPage(BasePage):
             return self
         
     @property
-    def error_message(self) -> WebElement: 
-        # return value is 'WebElement'
+    def error_message(self) -> WebElement: # return value is 'WebElement'
         return self._driver.find_element(*self.__error_message_locator).text

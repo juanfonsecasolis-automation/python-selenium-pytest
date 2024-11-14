@@ -14,7 +14,6 @@ class InventoryPage(WithUpperMenuPage):
         assert "/inventory.html" in self._driver.current_url
         self._wait_until_element_is_visible(self.__inventory_item_name_locator)
 
-    def get_number_of_inventory_items(self) -> int:
-        # return type is 'int'
+    def get_number_of_inventory_items(self) -> int: # return type is 'int'
         return len(self._driver.find_elements(*self.__inventory_item_container))
     

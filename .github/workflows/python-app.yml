@@ -32,7 +32,7 @@ jobs:
         
     - name: Test with pytest
       run: |
-        pytest --browser='Chrome' --html=reports/report.html
+        pytest --browser='Chrome' --html=reports/report.html  -n auto
 
     - uses: actions/upload-artifact@v4.4.3
       with:

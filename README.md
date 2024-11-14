@@ -19,11 +19,11 @@ deactive
 
 # Theory
 * PyTest is a syntax framework that can be integrated to Selenium WebDriver [2, 3, 5].
-* The set-up and tear-down code is stored in the same function and separated by the "yield" keyword [6].
-* Test suites are specified putting the "pytest.mark.nameOfSuite" annotation above test methods and registering them in the pytest.ini file.
-* PyTest finds test methods that starts with prefix "_prefix" on clases that finishes with "Test" suffix [4].
-* User can add extra options to the pytest command in a conftest.py file [6].
-* The function for providing webdriver as fixture goes in the conftest.py [7].
+* The set-up and tear-down code blocks are stored in the same function but separated by the keyword "yield" [6].
+* Test suites are specified putting the "pytest.mark.nameOfSuite" annotation above test methods and registered in the pytest.ini file.
+* PyTest finds test methods that starts with prefix "_test" (on clases), the classes that store those methods need to start with the "Test" suffix [4].
+* User can add extra options to the pytest command by modifying the "pytest_addoption" method of the conftest.py file [6].
+* The function for providing the webdriver as a fixture to methods goes in the conftest.py [7].
 * Single leading underscore (like in _variable) indicates that the member (variable or method) is for internal use (private or protected?) and _should_ not be invoked outside the class. Double leading underscore (like in __variable) triggers Python's name mangling, which means that the member can be access only by appending the class name (for example, _MyClass__variable) and prevents child classes from overriding it [8].
 
 # References

@@ -21,5 +21,5 @@ class InventoryPage(WithUpperMenuPage):
         )
 
     def get_number_of_inventory_items(self) -> int:
-        return self._driver.find_elements(*self.__inventory_item_container).count()
+        return len(self._driver.find_elements(*self.__inventory_item_container))
     

@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 seconds_implicit_wait = None
 
-def get_driver(browserType):
+def get_driver(browserType: str):
 
     driver = None
     if browserType=='Chrome':

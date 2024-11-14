@@ -8,7 +8,7 @@ class WithUpperMenuPage(BasePage):
     __cart_icon_locator = (By.XPATH, "//*[@data-test='shopping-cart-link']") # private attribute
 
     def __init__(self, driver: WebDriver):
-        super(WithUpperMenuPage, self).__init__(driver)
+        super().__init__(driver)
 
     def _verify_page_loaded_correctly(self):
         assert self._driver.find_element(self.__hamburguer_menu_locator).is_displayed

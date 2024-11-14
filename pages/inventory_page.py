@@ -8,7 +8,7 @@ class InventoryPage(WithUpperMenuPage):
     __inventory_item_container = (By.CLASS_NAME, 'inventory_item') # private member
 
     def __init__(self, driver: WebDriver):
-        super(InventoryPage, self).__init__(driver)
+        super().__init__(driver)
 
     def _verify_page_loaded_correctly(self):
         assert "/inventory.html" in self._driver.current_url

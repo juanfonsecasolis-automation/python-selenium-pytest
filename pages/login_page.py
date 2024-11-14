@@ -11,7 +11,7 @@ class LoginPage(BasePage):
     __error_message_locator = (By.XPATH, '//*[@data-test="error"]') # private member
 
     def __init__(self, driver: WebDriver):
-        super(LoginPage, self).__init__(driver)
+        super().__init__(driver)
 
     def _verify_page_loaded_correctly(self):
         assert "Swag Labs" in self._driver.title

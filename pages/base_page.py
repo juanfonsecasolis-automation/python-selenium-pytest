@@ -18,5 +18,5 @@ class BasePage(object):
             self._driver, 
             self._explicit_wait_timeout_seconds
         ).until(
-            EC.presence_of_element_located(locator)
+            EC.visibility_of_element_located(locator)
         )

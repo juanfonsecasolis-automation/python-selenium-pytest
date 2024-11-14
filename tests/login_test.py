@@ -8,6 +8,7 @@ class TestLogin:
     def test_positive_login(self, driver: WebDriver):
         loginPage = LoginPage(driver)
         inventoryPage = loginPage.login('standard_user', 'secret_sauce')
+        assert 0<inventoryPage.get_number_of_inventory_items(), 'There should be at least one inventory item listed.'
 
     @pytest.mark.negativeTests
     @pytest.mark.parametrize(

@@ -5,7 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class InventoryPage(WithUpperMenuPage):
 
-    __inventoryItemNameLocator = (By.XPATH, '//*[@data-test="inventory-item-name"]')  # private attribute
+    __inventory_item_name_locator = (By.XPATH, '//*[@data-test="inventory-item-name"]')  # private member
+    __inventory_item_container = (By.CLASS_NAME, 'inventory_item') # private member
 
     def __init__(self, driver: WebDriver):
         super(InventoryPage, self).__init__(driver)
@@ -16,6 +17,9 @@ class InventoryPage(WithUpperMenuPage):
             self._driver, 
             self._explicit_wait_timeout_seconds
         ).until(
-            EC.presence_of_element_located(self.__inventoryItemNameLocator)
+            EC.presence_of_element_located(self.__inventory_item_name_locator)
         )
+
+    def get_number_of_inventory_items(self) -> int:
+        return self._driver.find_elements(*self.__inventory_item_container).count()
     

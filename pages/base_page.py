@@ -19,3 +19,11 @@ class BasePage(object):
         ).until(
             EC.visibility_of_element_located(locator)
         )
+
+    def _wait_until_element_contains_text(self, locator: tuple, expected_text: str, timeout_seconds: int = 10):
+        WebDriverWait(
+            self._driver, 
+            timeout_seconds
+        ).until(
+            EC.text_to_be_present_in_element(locator, expected_text)
+        )

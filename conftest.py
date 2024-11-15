@@ -7,17 +7,17 @@ def pytest_addoption(parser):
         "--browser", 
         action="store", 
         default="Chrome", 
-        help="Browser to execute the tests.")
-
-@pytest.fixture()
-def driver(params):
-    driver = get_driver(params['browser'])
-    driver.get(BasePage.base_url)
-    yield driver
-    driver.close()    
+        help="Browser to execute the tests.")   
 
 @pytest.fixture
 def params(request):
     params = {}
     params['browser'] = request.config.getoption("--browser")
     return params
+
+@pytest.fixture()
+def driver(params):
+    driver = get_driver(params['browser'])
+    driver.get(BasePage.base_url)
+    yield driver
+    driver.close()

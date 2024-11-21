@@ -15,7 +15,7 @@ pip install -r requirements.txt
 # Run [1]
 ```
 source .venv/bin/activate 
-pytest -m <testSuite> --browser='Chrome' --html=reports/report.html -n auto
+pytest -m <testSuite> --browser='Chrome' --html=reports/report.html -n auto --headless='True'
 deactive
 ```
 

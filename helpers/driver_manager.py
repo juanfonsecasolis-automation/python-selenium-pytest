@@ -10,7 +10,7 @@ def get_driver(browserType: str):
     driver = None
     if browserType=='Chrome':
         driverOptions = Options()
-        #driverOptions.add_argument('--headless')
+        driverOptions.add_argument('--headless')
         driver = webdriver.Chrome(
             options=driverOptions, 
             service=ChromeService(ChromeDriverManager().install()))

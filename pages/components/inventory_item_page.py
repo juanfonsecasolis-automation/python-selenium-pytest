@@ -14,13 +14,14 @@ class InventoryItemComponent(BasePage):
         #self._wait_until_element_is_visible(self.__locator)
         pass
 
-    def get_number_of_instances(self) -> int:
-        return len(self._driver.find_elements(*self.__all_instances_locator))
-    
     def add_to_cart(self):
         add_button_locator = (By.XPATH, f'//*[@class="inventory_item"][{self.__instance_index}]//button')   # need to refactor getting the locator from __locator
         self._driver.find_element(*add_button_locator).click()
         self._wait_until_element_contains_text(add_button_locator, 'Remove')
+
+    @property
+    def number_of_instances(self) -> int:
+        return len(self._driver.find_elements(*self.__all_instances_locator))
 
     @property
     def __locator(self):

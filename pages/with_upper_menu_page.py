@@ -6,7 +6,7 @@ class WithUpperMenuPage(BasePage):
 
     __hamburguer_menu_locator = (By.ID, 'react-burger-menu-btn')    # private member
     __cart_icon_locator = (By.XPATH, "//*[@data-test='shopping-cart-link']") # private member
-    __shopping_cart_badge = (By.CLASS_NAME, 'shopping-cart-badge') # private member
+    __shopping_cart_badge = (By.XPATH, "//*[@data-test='shopping-cart-badge']") # private member
 
     def __init__(self, driver: WebDriver):
         super().__init__(driver)
@@ -15,7 +15,8 @@ class WithUpperMenuPage(BasePage):
         assert self._driver.find_element(self.__hamburguer_menu_locator).is_displayed
         assert self._driver.find_element(self.__cart_icon_locator).is_displayed
 
-    def get_number_items_on_the_cart(self) -> int:
+    @property
+    def number_of_items_on_the_cart(self) -> int:
         if len(self._driver.find_elements(*self.__shopping_cart_badge)) == 0:
             return 0
         else:

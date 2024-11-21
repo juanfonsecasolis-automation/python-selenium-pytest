@@ -17,4 +17,7 @@ class InventoryPage(WithUpperMenuPage):
     def add_one_item_to_the_cart(self):
         self._inventory_item_component.instance_index = 1
         self._inventory_item_component.add_to_cart()
+
+    def get_number_of_inventory_items(self) -> int:
+        return self._inventory_item_component.number_of_instances
     

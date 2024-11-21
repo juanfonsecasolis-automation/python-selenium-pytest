@@ -3,21 +3,29 @@ from helpers.driver_manager import get_driver
 from pages.base_page import BasePage
 
 def pytest_addoption(parser):
+
     parser.addoption(
         "--browser", 
         action="store", 
         default="Chrome", 
-        help="Browser to execute the tests.")   
+        help="Browser to execute the tests.")  
+    
+    parser.addoption(
+        "--headless", 
+        action="store", 
+        default="False", 
+        help="Execute tests in headless mode.")  
 
 @pytest.fixture
 def params(request):
     params = {}
     params['browser'] = request.config.getoption("--browser")
+    params['headless'] = request.config.getoption("--headless")
     return params
 
 @pytest.fixture()
 def driver(params):
-    driver = get_driver(params['browser'])
+    driver = get_driver(params)
     driver.get(BasePage.base_url)
     yield driver
     driver.close()

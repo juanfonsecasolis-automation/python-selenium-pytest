@@ -5,12 +5,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 seconds_implicit_wait = None
 
-def get_driver(browserType: str):
+def get_driver(params: dict):
 
     driver = None
-    if browserType=='Chrome':
+    if params['browser']=='Chrome':
         driverOptions = Options()
-        #driverOptions.add_argument('--headless')
+        if params['headless']=='True':
+            driverOptions.add_argument('--headless')
         driver = webdriver.Chrome(
             options=driverOptions, 
             service=ChromeService(ChromeDriverManager().install()))

@@ -6,18 +6,22 @@ class InventoryItemComponent(BasePage):
 
     __instance_index = 1
     __all_instances_locator = (By.CLASS_NAME, 'inventory_item') # private member 
+    __add_remove_button_locator = (By.XPATH, f'//*[@class="inventory_item"][{__instance_index}]//button')
 
     def __init__(self, driver):
         super().__init__(driver)
         
     def _verify_page_loaded_correctly(self):
-        #self._wait_until_element_is_visible(self.__locator)
+        self._wait_until_element_is_visible(self.__locator)
         pass
 
     def add_to_cart(self):
-        add_button_locator = (By.XPATH, f'//*[@class="inventory_item"][{self.__instance_index}]//button')   # need to refactor getting the locator from __locator
-        self._driver.find_element(*add_button_locator).click()
-        self._wait_until_element_contains_text(add_button_locator, 'Remove')
+        self._driver.find_element(*self.__add_remove_button_locator).click()
+        self._wait_until_element_contains_text(self.__add_remove_button_locator, 'Remove')
+
+    def remove_from_cart(self):
+        self._driver.find_element(*self.__add_remove_button_locator).click()
+        self._wait_until_element_contains_text(self.__add_remove_button_locator, 'Add to cart')
 
     @property
     def number_of_instances(self) -> int:

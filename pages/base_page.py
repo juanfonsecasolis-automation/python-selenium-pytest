@@ -1,3 +1,9 @@
+#
+# Copyright November 2024 Juan M. Fonseca-Solís.
+# Pytest/Selenium minimum working example (MWE).
+# References: https://www.udemy.com/course/selenium-webdriver-python-course (Dmitry Shyshkin)
+#
+
 from selenium.webdriver.support.wait import WebDriver, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 

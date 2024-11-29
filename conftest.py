@@ -1,3 +1,8 @@
+#
+# Copyright November 2024 Juan M. Fonseca-Solís
+# Pytest/Selenium minimum working example (MWE)
+#
+
 import pytest
 from helpers.driver_manager import get_driver
 from pages.base_page import BasePage

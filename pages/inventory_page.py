@@ -1,3 +1,9 @@
+#
+# Copyright November 2024 Juan M. Fonseca-Solís.
+# Pytest/Selenium minimum working example (MWE).
+# References: https://www.udemy.com/course/selenium-webdriver-python-course (Dmitry Shyshkin)
+#
+
 from pages.with_upper_menu_page import WithUpperMenuPage
 from selenium.webdriver.support.wait import WebDriver
 from pages.components.inventory_item_page import InventoryItemComponent

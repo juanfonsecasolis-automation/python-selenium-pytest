@@ -1,3 +1,9 @@
+#
+# Copyright November 2024 Juan M. Fonseca-Solís.
+# Pytest/Selenium minimum working example (MWE).
+# References: https://www.udemy.com/course/selenium-webdriver-python-course (Dmitry Shyshkin)
+#
+
 import pytest
 from pages.login_page import LoginPage
 from selenium.webdriver.support.wait import WebDriver

@@ -1,5 +1,4 @@
 from pages.base_page import BasePage
-from selenium.webdriver.support.wait import WebDriver
 from selenium.webdriver.common.by import By
 
 class InventoryItemComponent(BasePage):
@@ -41,3 +40,13 @@ class InventoryItemComponent(BasePage):
             self.__instance_index = value
         else:
             raise Exception('Instance index should be greater than zero.')
+        
+    def find_instance_index_for_item_name(self, target_item_name: str) -> int:
+        all_items = self._driver.find_elements(By.XPATH, '//*[@data-test="inventory-item-name"]')
+
+        for i in range(0, len(all_items)):
+            name = all_items[i].text
+            if name == target_item_name:
+                return i+1
+        
+        raise Exception(f'Cannot find inventory element with name "{target_item_name}".')

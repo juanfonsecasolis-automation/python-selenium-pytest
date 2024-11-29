@@ -25,7 +25,9 @@ def params(request):
 
 @pytest.fixture()
 def driver(params):
+    # test set up
     driver = get_driver(params)
     driver.get(BasePage.base_url)
     yield driver
+    # teardown
     driver.close()

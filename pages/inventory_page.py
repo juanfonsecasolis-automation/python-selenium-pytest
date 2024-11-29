@@ -1,6 +1,5 @@
 from pages.with_upper_menu_page import WithUpperMenuPage
 from selenium.webdriver.support.wait import WebDriver
-from selenium.webdriver.common.by import By
 from pages.components.inventory_item_page import InventoryItemComponent
 
 class InventoryPage(WithUpperMenuPage):
@@ -14,12 +13,12 @@ class InventoryPage(WithUpperMenuPage):
     def _verify_page_loaded_correctly(self):
         assert "/inventory.html" in self._driver.current_url
     
-    def add_one_item_to_the_cart(self):
-        self._inventory_item_component.instance_index = 1
+    def add_item_to_the_cart(self, item_name: str):
+        self._inventory_item_component.instance_index = self._inventory_item_component.find_instance_index_for_item_name(item_name)
         self._inventory_item_component.add_to_cart()
 
-    def remove_one_item_from_the_cart(self):
-        self._inventory_item_component.instance_index = 1
+    def remove_item_from_the_cart(self, item_name: str):
+        self._inventory_item_component.instance_index = self._inventory_item_component.find_instance_index_for_item_name(item_name)
         self._inventory_item_component.remove_from_cart()
 
     def get_number_of_inventory_items(self) -> int:

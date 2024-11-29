@@ -15,8 +15,10 @@ class TestLogin:
     @pytest.mark.login
     @pytest.mark.parametrize(
         'username, password', 
-        [('bad_user', 'secret_sauce'), 
-         ('standard_user', 'bad_sauce')])
+        [
+            ('bad_user', 'secret_sauce'), 
+            ('standard_user', 'bad_sauce')
+        ])
     def test_negative_login(self, username: str, password: str, driver: WebDriver):
         loginPage = LoginPage(driver)
         loginPage.login(username, password)

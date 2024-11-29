@@ -1,7 +1,7 @@
 #
 # Copyright November 2024 Juan M. Fonseca-Solís.
 # Pytest/Selenium minimum working example (MWE).
-# References: https://www.udemy.com/course/selenium-webdriver-python-course (Dmitry Shyshkin)
+# Reference: https://www.udemy.com/certificate/UC-36a2f5ef-d733-4d5d-964f-481c55e320e8 (certificate).
 #
 
 from selenium import webdriver

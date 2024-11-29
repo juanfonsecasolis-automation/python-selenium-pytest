@@ -1,6 +1,7 @@
 #
-# Copyright November 2024 Juan M. Fonseca-Solís
-# Pytest/Selenium minimum working example (MWE)
+# Copyright November 2024 Juan M. Fonseca-Solís.
+# Pytest/Selenium minimum working example (MWE).
+# Reference: https://www.udemy.com/certificate/UC-36a2f5ef-d733-4d5d-964f-481c55e320e8 (certificate).
 #
 
 import pytest
@@ -30,7 +31,7 @@ def params(request):
 
 @pytest.fixture()
 def driver(params):
-    # test set up
+    # set-up
     driver = get_driver(params)
     driver.get(BasePage.base_url)
     yield driver
